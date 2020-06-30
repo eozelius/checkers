@@ -1,12 +1,17 @@
-# from Piece import Piece
+from Piece import Piece
 
 class Board:
   def __init__(self):
-    self.board = []
+    self.board = self.generate_board()
+    print(self)
+
+  def generate_board(self):
+    board = []
+
     for row in range(0, 8):
-      self.board.append([])
+      board.append([])
       for col in range(0, 8):
-        self.board[row].append(None)
+        board[row].append(None)
     
     for x in range(0, 8):
       for y in range(0, 8):
@@ -16,20 +21,16 @@ class Board:
         # black pieces
         if x in range(0, 3):
           if x_is_even and not y_is_even:
-            self.board[x][y] = 'BLK'
+            board[x][y] = 'BLK'
           if not x_is_even and y_is_even:
-            self.board[x][y] = 'BLK'
+            board[x][y] = 'BLK'
         
         if x in range(5, 8):
           if not x_is_even and y_is_even:
-            self.board[x][y] = 'RED'
+            board[x][y] = 'RED'
           if x_is_even and not y_is_even:
-            self.board[x][y] = 'RED'
-    print(self)
-
-  def generate_board(self):
-    for x in range(0, 8):
-      print('x', x)
+            board[x][y] = 'RED'
+    return board
 
   def __repr__(self):
     print()
@@ -48,14 +49,3 @@ class Board:
       print()
     print('  ', '-' * 33)
     return ''
-'''
-black
-(0,1) (0,3) (0,5) (0,7)
-(1,0) (1,2) (1,4) (1,6)
-(2,1) (2,3) (2,5) (2,7)
-
-red
-(5,0) (5,2) (5,4) (5,6)
-(6,1) (6,3) (6,5) (6,7)
-(7,0) (7,2) (7,4) (7,6)
-'''
