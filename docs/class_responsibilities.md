@@ -6,7 +6,7 @@ __main__
 
 class Checkers
   - attributes
-    + public <boolean> is_active
+    + public <boolean> active
     + private remaining_red_pieces
     + private remaining_black_pieces
     + private whose_turn_is_it?
@@ -18,7 +18,7 @@ class Checkers
     + end_game()
       print('game over')
     + start_game()
-      self.is_active = true
+      self.active = true
     
       # set up while loop to get input from via commandline, 
       # until self.is_active is false
